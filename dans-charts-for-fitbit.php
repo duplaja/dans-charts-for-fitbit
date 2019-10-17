@@ -3,7 +3,7 @@
 Plugin Name: Dan's Charts for Fitbit
 Plugin URI: https://codeable.io/developers/dan-dulaney/
 Description: Display on your site various charts, directly from Fitbit's API
-Version: 1.0
+Version: 1.1
 Author: Dan Dulaney
 Author URI: https://codeable.io/developers/dan-dulaney/
 License: GPLv2
@@ -263,7 +263,7 @@ if ( ! function_exists( 'dans_fitbit_chart_display' ) ) {
             <canvas id='".$a['canvas_id']."' width='400px' height='400px'></canvas>";
         
             if($is_adf == 'yes') {
-                $html_return_string .= "<div id='".$a['legend_id']."'></div>";
+                $html_return_string .= "<div id='".$a['legend_id']."'></div><br><br>";
             }
         $html_return_string .= "</div>";
 
