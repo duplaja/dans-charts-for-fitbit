@@ -1,5 +1,5 @@
 # dans-charts-for-fitbit
-WordPress plugin to allow displaying of API data from Fitbit on the front end of your site in nicely formatted chart format.
+WordPress plugin to allow displaying of API data from Fitbit on the front end of your site in nicely formatted chart.
 
 ## Setup
 * Download this plugin, using git or [download the zip file here](https://github.com/duplaja/dans-charts-for-fitbit/archive/master.zip)
