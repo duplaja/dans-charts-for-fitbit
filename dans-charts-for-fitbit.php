@@ -30,7 +30,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
-/*
+
 //Handles checking for Updates from Github
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
@@ -39,7 +39,7 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'dans-charts-for-fitbit'
 );
 $myUpdateChecker->setBranch('master');
-*/
+
 
 use djchen\OAuth2\Client\Provider\Fitbit;
 require_once(dirname( __FILE__ ).'/vendor/autoload.php');
