@@ -45,14 +45,14 @@ Base Shortcode `[dans_fitbit_display]` (some attributes are required)
 ### Sample Shortcodes
 
 Show weight changes from 9/4/2019 until present as a line graph, with alternating colored dots for ADF (Alternate Day Fasting)
-```[dans_fitbit_display start_date='2019-09-04' chart_title='Weight Change Since 9/4/2019' dataset_label='Weight (lbs) Measured at 6am' is_adf='yes' type='weight']```
+> [dans_fitbit_display start_date='2019-09-04' chart_title='Weight Change Since 9/4/2019' dataset_label='Weight (lbs) Measured at 6am' is_adf='yes' type='weight']
 
 Show a stepped line graph for steps per day, from 9/4/2019 until present
-```[dans_fitbit_display start_date='2019-09-04' chart_title='Steps Since 9/4/2019' dataset_label='Steps Per Day' is_adf='no' type='steps' graph_type='line' stepped='true']```
+> [dans_fitbit_display start_date='2019-09-04' chart_title='Steps Since 9/4/2019' dataset_label='Steps Per Day' is_adf='no' type='steps' graph_type='line' stepped='true']
 
 Show a bar graph for calories burned per day, from 9/4/2019 until present
 
-```[dans_fitbit_display start_date='2019-09-04' chart_title='Calories Burned Since 9/4/2019' dataset_label='Daily Calories Burned' is_adf='no' type='calories_out' graph_type='bar']```
+> [dans_fitbit_display start_date='2019-09-04' chart_title='Calories Burned Since 9/4/2019' dataset_label='Daily Calories Burned' is_adf='no' type='calories_out' graph_type='bar']
 
 ## Todo / Upcoming Roadmap
 * Setting for Imperial Units vs Metric (hard-coded Imperial at the moment)
