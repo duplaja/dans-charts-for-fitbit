@@ -54,12 +54,15 @@ Show a bar graph for calories burned per day, from 9/4/2019 until present
 
 > [dans_fitbit_display start_date='2019-09-04' chart_title='Calories Burned Since 9/4/2019' dataset_label='Daily Calories Burned' is_adf='no' type='calories_out' graph_type='bar']
 
+## Live Demo
+
+You can see a live demo,here: [https://dandulaney.com/dans-charts-for-fitbit-plugin](https://dandulaney.com/dans-charts-for-fitbit-plugin)
+
 ## Todo / Upcoming Roadmap
 * Setting for Imperial Units vs Metric (hard-coded Imperial at the moment)
 * Impliment some short-term caching options, to cut down on API calls (transients)
 * Expand data able to be pulled (body fat %, etc)
 * Look at some combination graphs (ie, calories in and out mapped on the same graph, calories out + steps walked, etc).
-
 
 ## Built Using
 * [Fitbit's Web API ](https://dev.fitbit.com/build/reference/web-api/)
