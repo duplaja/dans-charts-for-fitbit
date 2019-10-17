@@ -1,0 +1,5 @@
+{
+    "require": {
+        "djchen/oauth2-fitbit": "^1.1"
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "name": "djchen/oauth2-fitbit",
+    "description": "Fitbit OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dan Chen",
+            "email": "dan@djc.me",
+            "homepage": "https://www.djc.me"
+        }
+    ],
+    "keywords": [
+        "oauth",
+        "oauth2",
+        "client",
+        "authorization",
+        "authentication",
+        "fitbit"
+    ],
+    "require": {
+        "php": ">=5.6.0",
+        "league/oauth2-client": "^2.3"
+    },
+    "require-dev": {
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "^5.0",
+        "squizlabs/php_codesniffer": "^2.0",
+        "friendsofphp/php-cs-fixer": "~1.0",
+        "jakub-onderka/php-parallel-lint": "~0.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "djchen\\OAuth2\\Client\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "djchen\\OAuth2\\Client\\Test\\": "tests/src/"
+        }
+    }
+}
