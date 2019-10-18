@@ -30,7 +30,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
-
+/*
 //Handles checking for Updates from Github
 require 'plugin-update-checker/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
@@ -39,7 +39,7 @@ $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'dans-charts-for-fitbit'
 );
 $myUpdateChecker->setBranch('master');
-
+*/
 
 use djchen\OAuth2\Client\Provider\Fitbit;
 require_once(dirname( __FILE__ ).'/vendor/autoload.php');
@@ -158,16 +158,6 @@ if ( ! function_exists( 'dans_fitbit_chart_display_settings' ) ) {
                     update_option( 'fitbit_app_client_token', $accessToken->getToken());
 
                     update_option( 'fitbit_app_client_refresh_token', $accessToken->getRefreshToken());
-
-                    $request = $provider->getAuthenticatedRequest(
-                        Fitbit::METHOD_GET,
-                        Fitbit::BASE_FITBIT_API_URL . '/1/user/-/profile.json',
-                        $accessToken,
-                        ['headers' => [Fitbit::HEADER_ACCEPT_LANG => 'en_US'], [Fitbit::HEADER_ACCEPT_LOCALE => 'en_US']]
-        
-                    );
-                    // Make the authenticated API request and get the parsed response.
-                    $response = $provider->getParsedResponse($request);
             
             
                 } catch (\League\OAuth2\Client\Provider\Exception\IdentityProviderException $e) {
@@ -210,7 +200,8 @@ if ( ! function_exists( 'dans_fitbit_chart_display' ) ) {
             'legend_id' => 'legend-'.time().rand(), //gives a generated ID for multiple charts on one page
             'canvas_id' => 'canvas-'.time().rand(), //gives a generated ID for multiple charts on one page
             'graph_type' => 'line',
-            'stepped' => false
+            'stepped' => false,
+	    'measurements' => 'imperial'
 
         ), $atts );
 
@@ -232,8 +223,18 @@ if ( ! function_exists( 'dans_fitbit_chart_display' ) ) {
 
         $graph_type = $a['graph_type'];
 
+	$measurements = $a['measurements'];
+
+	if($measurements == 'metric') {
+
+		$locale = 'en_CA';
+	} else {
+
+		$locale = 'en_US';
+	}
+
         //Pulls data from Fitbit API
-        $fitbit_data = dans_fitbit_chart_pull_data($type,$startdate,$enddate);
+        $fitbit_data = dans_fitbit_chart_pull_data($type,$locale,$startdate,$enddate);
 
 
         $values = array_column($fitbit_data, 'value');
@@ -263,7 +264,7 @@ if ( ! function_exists( 'dans_fitbit_chart_display' ) ) {
             <canvas id='".$a['canvas_id']."' width='400px' height='400px'></canvas>";
         
             if($is_adf == 'yes') {
-                $html_return_string .= "<div id='".$a['legend_id']."'></div><br><br>";
+                $html_return_string .= "<div id='".$a['legend_id']."'></div>";
             }
         $html_return_string .= "</div>";
 
@@ -333,7 +334,7 @@ if ( ! function_exists( 'dans_fitbit_chart_pull_data' ) ) {
      */
 
 
-    function dans_fitbit_chart_pull_data($key,$base_date = '',$end_date = '') {
+    function dans_fitbit_chart_pull_data($key,$locale,$base_date = '',$end_date = '') {
         if(empty($key)) { 
         return false; 
         }
@@ -347,7 +348,7 @@ if ( ! function_exists( 'dans_fitbit_chart_pull_data' ) ) {
         }
         $access_token = get_option('fitbit_app_client_token');
 
-        $measurements = 'en_US';
+        $measurements = $locale;
 
 
         $url_array = array(
@@ -417,6 +418,7 @@ if ( ! function_exists( 'dans_fitbit_chart_pull_data' ) ) {
             }
         
         if (!empty($returned_data)) {
+
                 return $returned_data;
             }
             

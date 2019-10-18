@@ -41,6 +41,7 @@ Base Shortcode `[dans_fitbit_display]` (some attributes are required)
 | is_adf    | "yes" or "no" (Toggles on an extra legend + alternating color dots for line charts)     | No, defaults to no.       |
 | graph_type | "line", "bar" (may add support for others later) | No, default is line. |
 | stepped | "false" or "true" (only affects graph_type="line", stepped line graph) | No, defaults to "false" |
+| measurements | "imperial" or "metric", changes units to metric | No, default is "imperial". |
 
 ### Sample Shortcodes
 
@@ -59,10 +60,17 @@ Show a bar graph for calories burned per day, from 9/4/2019 until present
 You can see a live demo,here: [https://dandulaney.com/dans-charts-for-fitbit-plugin](https://dandulaney.com/dans-charts-for-fitbit-plugin)
 
 ## Todo / Upcoming Roadmap
-* Setting for Imperial Units vs Metric (hard-coded Imperial at the moment)
 * Impliment some short-term caching options, to cut down on API calls (transients)
 * Expand data able to be pulled (body fat %, etc)
 * Look at some combination graphs (ie, calories in and out mapped on the same graph, calories out + steps walked, etc).
+
+## Changelog
+
+== 1.1 ==
+- Allow metric units, using the attribute `measurements="metric"`
+
+== 1.0 ==
+- Initial Upload
 
 ## Built Using
 * [Fitbit's Web API ](https://dev.fitbit.com/build/reference/web-api/)
